@@ -1,0 +1,35 @@
+<div class="left main-sidebar"  xmlns:th="http://www.thymeleaf.org" th:fragment="sidebar">
+
+    <div class="sidebar-inner leftscroll">
+
+        <div id="sidebar-menu">
+
+            <ul>
+
+                <li class="submenu">
+                    <a href="/"><i class="fas fa-fw fa-bars"></i><span> Inicio </span> </a>
+                </li>
+<!--
+                <li class="submenu">
+                    <a href="/now"><i class="fas fa-chart-area"></i><span> Now </span> </a>
+                </li>
+-->
+                <li class="submenu">
+                    <a href="#"><i class="fa fa-fw fa-table"></i> <span> Menu </span> <span class="menu-arrow"></span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="/casos"><i class="fas fa-balance-scale"></i>Casos</a></li>
+                        <li><a href="/evidencias"><i class="fas fa-search"></i>Evidencias</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+        <div class="clearfix"></div>
+
+    </div>
+
+</div>

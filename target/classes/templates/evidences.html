@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headTag :: headTag ('roles')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="adminbody">
+<div id="main">
+    <div class="headerbar" th:replace="fragments/header :: headerbar">
+    </div>
+    <div class="left main-sidebar" th:replace="fragments/sidebar :: sidebar">
+    </div>
+    <div class="content-page">
+
+        <!-- Start content -->
+        <div class="content">
+
+            <div class="container-fluid">
+
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-holder">
+                            <h1 class="main-title float-left" th:text="#{view.evidence}"></h1>
+                            <ol class="breadcrumb float-right">
+                                <li class="breadcrumb-item" th:text="#{view.evidence}"></li>
+                                <li class="breadcrumb-item active" th:text="#{view.evidence}"></li>
+                            </ol>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+
+                <div class="row">
+                    <div class="col-xl-12">
+
+                        <div class="card">
+                            <div class="card-header"><h3 class="text-info m-b-10 m-l-5"
+                                                         th:text="#{view.evidence}"></h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div class="input-group space">
+                                        <div class="col-12">
+                                            <form name="addEvidence" action="/add_evidence">
+                                                <button type="submit" class="btn badge-info pull-right btnAdd"
+                                                        th:text="#{view.new_evidence}">
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <table class="table table-hover table-info-sale"
+                                           cellspacing="0" width="100%" role="grid" aria-describedby="example23_info"
+                                           style="width: 100%;">
+                                        <thead>
+                                        <tr>
+                                            <th th:text="#{view.evidence}"></th>
+                                            <th th:text="#{view.evidence_date}"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="evidencia: ${evidences}">
+                                            <td th:text="${evidencia.getDescription()}"></td>
+                                            <td th:text="${#temporals.format(evidencia.getCreateDate(), 'dd-MM-yyyy')}"></td>
+                                            <td>
+                                                <a th:href="'/edit_evidence/'+${evidencia.getId()}"
+                                                   class="btn badge badge-success spaceBtn fa fa-edit"
+                                                   data-toggle="tooltip" th:title="#{view.evidence}">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr/>
+                                </div>
+                            </div>
+                            <!--</div>-->
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- END container-fluid -->
+
+        </div>
+        <!-- END content -->
+
+    </div>
+    <!-- END content-page -->
+
+    <footer th:replace="fragments/footer::footer">
+    </footer>
+</div>
+<th:block th:replace="fragments/scripts :: scripts">
+</th:block>
+</body>
